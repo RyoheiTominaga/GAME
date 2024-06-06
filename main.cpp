@@ -10,7 +10,7 @@ unsigned* image[imageNum] = {0};
 int P_num();
 int C_num();
 void PlayGame(int Pnum,int Cnum);
-//‚·‚Ý‚Ü‚¹‚ñ‚Ü‚¾“r’†‚Å‚·
+//‚·‚Ý‚Ü‚¹‚ñ‚Ü‚¾‚Ü‚¾“r’†‚Å‚·
 namespace GameLib {
 	void readFile(char** buffer, int* size, const char* filename);
 	const char* GetFileName(int num);
@@ -49,6 +49,7 @@ namespace GameLib {
 				}
 			}
 		}
+
 		PlayGame(P_number,C_number);
 		
 		
