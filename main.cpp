@@ -8,6 +8,8 @@ int imageWight = 0;
 int imageHeight = 0;
 unsigned* image[imageNum] = {0};
 int P_num();
+int C_num();
+void PlayGame(int Pnum,int Cnum);
 //すみませんまだ途中です
 namespace GameLib {
 	void readFile(char** buffer, int* size, const char* filename);
@@ -15,14 +17,15 @@ namespace GameLib {
 	unsigned getUnsigned(const char*);
 	
 	void Framework::update() {
-		int number = 0;
-		
+		int P_number = 0;
+		int C_number = 0;
 		if (first) {
-			number = P_num();
+			P_number = P_num();
+			C_number = C_num();
 			for (int i = 0;i < imageNum;++i) {
 				char* buffer = 0;
 				int size = 0;
-				readFile(&buffer, &size,GetFileName(number) );
+				readFile(&buffer, &size,GetFileName(P_number) );
 				imageHeight = getUnsigned(&(buffer[12]));
 				imageWight = getUnsigned(&(buffer[16]));
 				image[i] = new unsigned[imageWight * imageHeight];
@@ -46,7 +49,7 @@ namespace GameLib {
 				}
 			}
 		}
-		PlayGame(number);
+		PlayGame(P_number,C_number);
 		
 		
 	}
@@ -126,9 +129,9 @@ bool Win(int P_N, int Cp_N)//プレイヤーが勝ったかどうか
 	}
 }
 
-void PlayGame(int num) 
+void PlayGame(int Pnum,int Cnum) 
 {
-	bool win = Win(num, C_num());
+	bool win = Win(Pnum,Cnum);
 	
 	if (win) {
 		cout << "プレイヤー勝利";
