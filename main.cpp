@@ -8,6 +8,7 @@ int imageWight = 0;
 int imageHeight = 0;
 unsigned* image[imageNum] = {0};
 int P_num();
+//‚·‚Ý‚Ü‚¹‚ñ‚Ü‚¾“r’†‚Å‚·
 namespace GameLib {
 	void readFile(char** buffer, int* size, const char* filename);
 	const char* GetFileName(int num);
