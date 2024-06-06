@@ -15,10 +15,10 @@ namespace GameLib {
 	unsigned getUnsigned(const char*);
 	
 	void Framework::update() {
-	
+		int number = 0;
 		
 		if (first) {
-			int number = P_num();
+			number = P_num();
 			for (int i = 0;i < imageNum;++i) {
 				char* buffer = 0;
 				int size = 0;
@@ -46,7 +46,7 @@ namespace GameLib {
 				}
 			}
 		}
-		
+		PlayGame(number);
 		
 		
 	}
@@ -126,9 +126,9 @@ bool Win(int P_N, int Cp_N)//プレイヤーが勝ったかどうか
 	}
 }
 
-void PlayGame() 
+void PlayGame(int num) 
 {
-	bool win = Win(P_num(), C_num());
+	bool win = Win(num, C_num());
 	
 	if (win) {
 		cout << "プレイヤー勝利";
